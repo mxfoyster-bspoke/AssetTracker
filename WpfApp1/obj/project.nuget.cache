@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Ac5hMp5sDls=",
+  "dgSpecHash": "8F9AspbsczY=",
   "success": true,
   "projectFilePath": "C:\\Development\\WpfApp1\\WpfApp1\\WpfApp1.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\mxfoy\\.nuget\\packages\\communitytoolkit.mvvm\\8.4.1\\communitytoolkit.mvvm.8.4.1.nupkg.sha512",
     "C:\\Users\\mxfoy\\.nuget\\packages\\controlzex\\7.0.2\\controlzex.7.0.2.nupkg.sha512",
     "C:\\Users\\mxfoy\\.nuget\\packages\\mahapps.metro\\3.0.0-rc0529\\mahapps.metro.3.0.0-rc0529.nupkg.sha512",
     "C:\\Users\\mxfoy\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.135\\microsoft.xaml.behaviors.wpf.1.1.135.nupkg.sha512"

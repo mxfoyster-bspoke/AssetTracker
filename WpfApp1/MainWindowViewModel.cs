@@ -1,25 +1,29 @@
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace WpfApp1;
 
-public class MainWindowViewModel : INotifyPropertyChanged
+public class MainWindowViewModel : ObservableObject
 {
+    private string _itemName;
+    private string _itemDescription;
+
     private string _title = "Item Name!";
 
     public string Title
     {
         get => _title;
-        set 
-        { 
-            _title = value; 
-            OnPropertyChanged(); 
-        }
-    }
 
-    public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged([CallerMemberName] string name = null)
+        set => SetProperty(ref _title, value);
+    }
+    public string ItemName
     {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        get => _itemName;
+        set => SetProperty(ref _itemName, value);
+    }
+    
+    public string ItemDescription 
+    {
+        get => _itemDescription;    
+        set => SetProperty(ref _itemDescription, value);
     }
 }

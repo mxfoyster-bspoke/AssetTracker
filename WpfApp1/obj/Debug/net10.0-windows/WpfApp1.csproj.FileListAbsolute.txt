@@ -25,3 +25,4 @@ C:\Development\WpfApp1\WpfApp1\bin\Debug\net10.0-windows\Microsoft.Xaml.Behavior
 C:\Development\WpfApp1\WpfApp1\bin\Debug\net10.0-windows\de\MahApps.Metro.resources.dll
 C:\Development\WpfApp1\WpfApp1\obj\Debug\net10.0-windows\WpfApp1.sourcelink.json
 C:\Development\WpfApp1\WpfApp1\obj\Debug\net10.0-windows\WpfApp1.csproj.Up2Date
+C:\Development\WpfApp1\WpfApp1\bin\Debug\net10.0-windows\CommunityToolkit.Mvvm.dll
