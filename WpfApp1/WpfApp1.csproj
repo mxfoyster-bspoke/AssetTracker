@@ -11,6 +11,8 @@
     <ItemGroup>
       <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.1" />
       <PackageReference Include="MahApps.Metro" Version="3.0.0-rc0529" />
+      <PackageReference Include="Microsoft.Extensions.Hosting" Version="11.0.0-preview.2.26159.112" />
+      <PackageReference Include="Microsoft.Extensions.Http" Version="11.0.0-preview.2.26159.112" />
       <PackageReference Include="Newtonsoft.Json" Version="13.0.5-beta1" />
       <PackageReference Include="NSwag.MSBuild" Version="14.6.3">
         <PrivateAssets>all</PrivateAssets>

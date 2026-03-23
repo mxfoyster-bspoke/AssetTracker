@@ -16,9 +16,11 @@ namespace WpfApp1;
 /// </summary>
 public partial class MainWindow : Window
 {
-    public MainWindow()
+    public MainWindow(MainWindowViewModel viewModel)
     {
         InitializeComponent();
-        this.DataContext = new MainWindowViewModel();
+        
+        // This links the UI to the ViewModel logic
+        DataContext = viewModel;
     }
 }

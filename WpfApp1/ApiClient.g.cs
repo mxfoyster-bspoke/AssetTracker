@@ -25,7 +25,429 @@ namespace WpfApp1
     using System = global::System;
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "14.6.3.0 (NJsonSchema v11.5.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class ApiClient 
+    public partial interface IApiClient
+    {
+        /// <summary>
+        /// Add a new pet to the store
+        /// </summary>
+        /// <remarks>
+        /// Add new pet to the store inventory.
+        /// </remarks>
+        /// <param name="body">Pet object that needs to be added to the store</param>
+        /// <param name="accept_Language">The language you prefer for messages. Supported values are en-AU, en-CA, en-GB, en-US</param>
+        /// <param name="cookieParam">Some cookie</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task AddPetAsync(Body body, string accept_Language, long cookieParam);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Add a new pet to the store
+        /// </summary>
+        /// <remarks>
+        /// Add new pet to the store inventory.
+        /// </remarks>
+        /// <param name="body">Pet object that needs to be added to the store</param>
+        /// <param name="accept_Language">The language you prefer for messages. Supported values are en-AU, en-CA, en-GB, en-US</param>
+        /// <param name="cookieParam">Some cookie</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task AddPetAsync(Body body, string accept_Language, long cookieParam, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Update an existing pet
+        /// </summary>
+        /// <param name="body">Pet object that needs to be added to the store</param>
+        /// <param name="accept_Language">The language you prefer for messages. Supported values are en-AU, en-CA, en-GB, en-US</param>
+        /// <param name="cookieParam">Some cookie</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task UpdatePetAsync(Body body, string accept_Language, long cookieParam);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Update an existing pet
+        /// </summary>
+        /// <param name="body">Pet object that needs to be added to the store</param>
+        /// <param name="accept_Language">The language you prefer for messages. Supported values are en-AU, en-CA, en-GB, en-US</param>
+        /// <param name="cookieParam">Some cookie</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task UpdatePetAsync(Body body, string accept_Language, long cookieParam, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Find pet by ID
+        /// </summary>
+        /// <remarks>
+        /// Returns a single pet
+        /// </remarks>
+        /// <param name="petId">ID of pet to return</param>
+        /// <returns>successful operation</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Pet> GetPetByIdAsync(long petId);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Find pet by ID
+        /// </summary>
+        /// <remarks>
+        /// Returns a single pet
+        /// </remarks>
+        /// <param name="petId">ID of pet to return</param>
+        /// <returns>successful operation</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Pet> GetPetByIdAsync(long petId, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Updates a pet in the store with form data
+        /// </summary>
+        /// <param name="petId">ID of pet that needs to be updated</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task UpdatePetWithFormAsync(long petId, Body2 body);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Updates a pet in the store with form data
+        /// </summary>
+        /// <param name="petId">ID of pet that needs to be updated</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task UpdatePetWithFormAsync(long petId, Body2 body, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Deletes a pet
+        /// </summary>
+        /// <param name="petId">Pet id to delete</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task DeletePetAsync(string api_key, long petId);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Deletes a pet
+        /// </summary>
+        /// <param name="petId">Pet id to delete</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task DeletePetAsync(string api_key, long petId, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// uploads an image
+        /// </summary>
+        /// <param name="petId">ID of pet to update</param>
+        /// <returns>successful operation</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<ApiResponse> UploadFileAsync(long petId, System.IO.Stream body);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// uploads an image
+        /// </summary>
+        /// <param name="petId">ID of pet to update</param>
+        /// <returns>successful operation</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<ApiResponse> UploadFileAsync(long petId, System.IO.Stream body, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Finds Pets by status
+        /// </summary>
+        /// <remarks>
+        /// Multiple status values can be provided with comma separated strings
+        /// </remarks>
+        /// <param name="status">Status values that need to be considered for filter</param>
+        /// <returns>successful operation</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Pet>> FindPetsByStatusAsync(System.Collections.Generic.IEnumerable<Anonymous> status);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Finds Pets by status
+        /// </summary>
+        /// <remarks>
+        /// Multiple status values can be provided with comma separated strings
+        /// </remarks>
+        /// <param name="status">Status values that need to be considered for filter</param>
+        /// <returns>successful operation</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Pet>> FindPetsByStatusAsync(System.Collections.Generic.IEnumerable<Anonymous> status, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Finds Pets by tags
+        /// </summary>
+        /// <remarks>
+        /// Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.
+        /// </remarks>
+        /// <param name="tags">Tags to filter by</param>
+        /// <returns>successful operation</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        [System.Obsolete]
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Pet>> FindPetsByTagsAsync(System.Collections.Generic.IEnumerable<string> tags);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Finds Pets by tags
+        /// </summary>
+        /// <remarks>
+        /// Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.
+        /// </remarks>
+        /// <param name="tags">Tags to filter by</param>
+        /// <returns>successful operation</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        [System.Obsolete]
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Pet>> FindPetsByTagsAsync(System.Collections.Generic.IEnumerable<string> tags, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Returns pet inventories by status
+        /// </summary>
+        /// <remarks>
+        /// Returns a map of status codes to quantities
+        /// </remarks>
+        /// <returns>successful operation</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.IDictionary<string, int>> GetInventoryAsync();
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Returns pet inventories by status
+        /// </summary>
+        /// <remarks>
+        /// Returns a map of status codes to quantities
+        /// </remarks>
+        /// <returns>successful operation</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.IDictionary<string, int>> GetInventoryAsync(System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Place an order for a pet
+        /// </summary>
+        /// <param name="body">order placed for purchasing the pet</param>
+        /// <returns>successful operation</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Order> PlaceOrderAsync(Order body);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Place an order for a pet
+        /// </summary>
+        /// <param name="body">order placed for purchasing the pet</param>
+        /// <returns>successful operation</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Order> PlaceOrderAsync(Order body, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Find purchase order by ID
+        /// </summary>
+        /// <remarks>
+        /// For valid response try integer IDs with value &lt;= 5 or &gt; 10. Other values will generated exceptions
+        /// </remarks>
+        /// <param name="orderId">ID of pet that needs to be fetched</param>
+        /// <returns>successful operation</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Order> GetOrderByIdAsync(long orderId);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Find purchase order by ID
+        /// </summary>
+        /// <remarks>
+        /// For valid response try integer IDs with value &lt;= 5 or &gt; 10. Other values will generated exceptions
+        /// </remarks>
+        /// <param name="orderId">ID of pet that needs to be fetched</param>
+        /// <returns>successful operation</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Order> GetOrderByIdAsync(long orderId, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Delete purchase order by ID
+        /// </summary>
+        /// <remarks>
+        /// For valid response try integer IDs with value &lt; 1000. Anything above 1000 or nonintegers will generate API errors
+        /// </remarks>
+        /// <param name="orderId">ID of the order that needs to be deleted</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task DeleteOrderAsync(string orderId);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Delete purchase order by ID
+        /// </summary>
+        /// <remarks>
+        /// For valid response try integer IDs with value &lt; 1000. Anything above 1000 or nonintegers will generate API errors
+        /// </remarks>
+        /// <param name="orderId">ID of the order that needs to be deleted</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task DeleteOrderAsync(string orderId, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Subscribe to the Store events
+        /// </summary>
+        /// <remarks>
+        /// Add subscription for a store events
+        /// </remarks>
+        /// <returns>Subscription added</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Response> SubscribeAsync(Body3 body);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Subscribe to the Store events
+        /// </summary>
+        /// <remarks>
+        /// Add subscription for a store events
+        /// </remarks>
+        /// <returns>Subscription added</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Response> SubscribeAsync(Body3 body, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Create user
+        /// </summary>
+        /// <remarks>
+        /// This can only be done by the logged in user.
+        /// </remarks>
+        /// <param name="body">Created user object</param>
+        /// <returns>successful operation</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task CreateUserAsync(User body);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Create user
+        /// </summary>
+        /// <remarks>
+        /// This can only be done by the logged in user.
+        /// </remarks>
+        /// <param name="body">Created user object</param>
+        /// <returns>successful operation</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task CreateUserAsync(User body, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Get user by user name
+        /// </summary>
+        /// <param name="username">The name that needs to be fetched. Use user1 for testing.</param>
+        /// <returns>successful operation</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<User> GetUserByNameAsync(string username);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Get user by user name
+        /// </summary>
+        /// <param name="username">The name that needs to be fetched. Use user1 for testing.</param>
+        /// <returns>successful operation</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<User> GetUserByNameAsync(string username, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Updated user
+        /// </summary>
+        /// <remarks>
+        /// This can only be done by the logged in user.
+        /// </remarks>
+        /// <param name="username">name that need to be deleted</param>
+        /// <param name="body">Updated user object</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task UpdateUserAsync(string username, User body);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Updated user
+        /// </summary>
+        /// <remarks>
+        /// This can only be done by the logged in user.
+        /// </remarks>
+        /// <param name="username">name that need to be deleted</param>
+        /// <param name="body">Updated user object</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task UpdateUserAsync(string username, User body, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Delete user
+        /// </summary>
+        /// <remarks>
+        /// This can only be done by the logged in user.
+        /// </remarks>
+        /// <param name="username">The name that needs to be deleted</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task DeleteUserAsync(string username);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Delete user
+        /// </summary>
+        /// <remarks>
+        /// This can only be done by the logged in user.
+        /// </remarks>
+        /// <param name="username">The name that needs to be deleted</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task DeleteUserAsync(string username, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Creates list of users with given input array
+        /// </summary>
+        /// <param name="body">List of user object</param>
+        /// <returns>successful operation</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task CreateUsersWithArrayInputAsync(System.Collections.Generic.IEnumerable<User> body);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Creates list of users with given input array
+        /// </summary>
+        /// <param name="body">List of user object</param>
+        /// <returns>successful operation</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task CreateUsersWithArrayInputAsync(System.Collections.Generic.IEnumerable<User> body, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Creates list of users with given input array
+        /// </summary>
+        /// <param name="body">List of user object</param>
+        /// <returns>successful operation</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task CreateUsersWithListInputAsync(System.Collections.Generic.IEnumerable<User> body);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Creates list of users with given input array
+        /// </summary>
+        /// <param name="body">List of user object</param>
+        /// <returns>successful operation</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task CreateUsersWithListInputAsync(System.Collections.Generic.IEnumerable<User> body, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Logs user into the system
+        /// </summary>
+        /// <param name="username">The user name for login</param>
+        /// <param name="password">The password for login in clear text</param>
+        /// <returns>successful operation</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<string> LoginUserAsync(string username, string password);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Logs user into the system
+        /// </summary>
+        /// <param name="username">The user name for login</param>
+        /// <param name="password">The password for login in clear text</param>
+        /// <returns>successful operation</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<string> LoginUserAsync(string username, string password, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Logs out current logged in user session
+        /// </summary>
+        /// <returns>successful operation</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task LogoutUserAsync();
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Logs out current logged in user session
+        /// </summary>
+        /// <returns>successful operation</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task LogoutUserAsync(System.Threading.CancellationToken cancellationToken);
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "14.6.3.0 (NJsonSchema v11.5.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class ApiClient : IApiClient
     {
         #pragma warning disable 8618
         private string _baseUrl;
