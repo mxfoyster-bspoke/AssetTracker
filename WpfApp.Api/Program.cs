@@ -1,23 +1,27 @@
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddOpenApiDocument(); // Adds NSwag services
+// --- 1. Register Services ---
+// This tells ASP.NET Core to allow other tools to "explore" your endpoints
+builder.Services.AddEndpointsApiExplorer(); 
+
+// This is your NSwag service
+builder.Services.AddOpenApiDocument(config =>
+{
+    config.PostProcess = document =>
+    {
+        document.Info.Title = "Weather API";
+        document.Info.Version = "v1";
+    };
+});
 
 var app = builder.Build();
 
+// --- 2. Configure Middleware ---
+// Now that the app is built, we configure how it responds to requests
 if (app.Environment.IsDevelopment())
 {
-    app.UseOpenApi();      // Serves the JSON spec
-    app.UseSwaggerUi();    // Serves the UI (at /swagger)
-}
-
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
+    app.UseOpenApi();       // Serves the actual JSON specification
+    app.UseSwaggerUi();     // Serves the interactive UI at /swagger
 }
 
 app.UseHttpsRedirection();
@@ -27,6 +31,7 @@ var summaries = new[]
     "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
 };
 
+// --- 3. Endpoints ---
 app.MapGet("/weatherforecast", () =>
     {
         var forecast = Enumerable.Range(1, 5).Select(index =>
@@ -43,6 +48,7 @@ app.MapGet("/weatherforecast", () =>
 
 app.Run();
 
+// Data model for the API
 record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
 {
     public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
