@@ -1,0 +1,16 @@
+C:\Development\WpfApp1\WpfApp1.Services\bin\Debug\net10.0\WpfApp1.Services.deps.json
+C:\Development\WpfApp1\WpfApp1.Services\bin\Debug\net10.0\WpfApp1.Services.dll
+C:\Development\WpfApp1\WpfApp1.Services\bin\Debug\net10.0\WpfApp1.Services.pdb
+C:\Development\WpfApp1\WpfApp1.Services\bin\Debug\net10.0\WpfApp1.Data.dll
+C:\Development\WpfApp1\WpfApp1.Services\bin\Debug\net10.0\WpfApp1.Data.pdb
+C:\Development\WpfApp1\WpfApp1.Services\obj\Debug\net10.0\WpfApp1.Services.csproj.AssemblyReference.cache
+C:\Development\WpfApp1\WpfApp1.Services\obj\Debug\net10.0\WpfApp1.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Development\WpfApp1\WpfApp1.Services\obj\Debug\net10.0\WpfApp1.Services.AssemblyInfoInputs.cache
+C:\Development\WpfApp1\WpfApp1.Services\obj\Debug\net10.0\WpfApp1.Services.AssemblyInfo.cs
+C:\Development\WpfApp1\WpfApp1.Services\obj\Debug\net10.0\WpfApp1.Services.csproj.CoreCompileInputs.cache
+C:\Development\WpfApp1\WpfApp1.Services\obj\Debug\net10.0\WpfApp1.Services.sourcelink.json
+C:\Development\WpfApp1\WpfApp1.Services\obj\Debug\net10.0\WpfApp1..37EDD479.Up2Date
+C:\Development\WpfApp1\WpfApp1.Services\obj\Debug\net10.0\WpfApp1.Services.dll
+C:\Development\WpfApp1\WpfApp1.Services\obj\Debug\net10.0\refint\WpfApp1.Services.dll
+C:\Development\WpfApp1\WpfApp1.Services\obj\Debug\net10.0\WpfApp1.Services.pdb
+C:\Development\WpfApp1\WpfApp1.Services\obj\Debug\net10.0\ref\WpfApp1.Services.dll

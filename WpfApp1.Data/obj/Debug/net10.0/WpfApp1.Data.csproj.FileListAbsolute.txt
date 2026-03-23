@@ -1,0 +1,15 @@
+C:\Development\WpfApp1\WpfApp1.Data\bin\Debug\net10.0\WpfApp1.Data.deps.json
+C:\Development\WpfApp1\WpfApp1.Data\bin\Debug\net10.0\WpfApp1.Data.runtimeconfig.json
+C:\Development\WpfApp1\WpfApp1.Data\bin\Debug\net10.0\WpfApp1.Data.dll
+C:\Development\WpfApp1\WpfApp1.Data\bin\Debug\net10.0\WpfApp1.Data.pdb
+C:\Development\WpfApp1\WpfApp1.Data\obj\Debug\net10.0\WpfApp1.Data.csproj.AssemblyReference.cache
+C:\Development\WpfApp1\WpfApp1.Data\obj\Debug\net10.0\WpfApp1.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Development\WpfApp1\WpfApp1.Data\obj\Debug\net10.0\WpfApp1.Data.AssemblyInfoInputs.cache
+C:\Development\WpfApp1\WpfApp1.Data\obj\Debug\net10.0\WpfApp1.Data.AssemblyInfo.cs
+C:\Development\WpfApp1\WpfApp1.Data\obj\Debug\net10.0\WpfApp1.Data.csproj.CoreCompileInputs.cache
+C:\Development\WpfApp1\WpfApp1.Data\obj\Debug\net10.0\WpfApp1.Data.sourcelink.json
+C:\Development\WpfApp1\WpfApp1.Data\obj\Debug\net10.0\WpfApp1.Data.dll
+C:\Development\WpfApp1\WpfApp1.Data\obj\Debug\net10.0\refint\WpfApp1.Data.dll
+C:\Development\WpfApp1\WpfApp1.Data\obj\Debug\net10.0\WpfApp1.Data.pdb
+C:\Development\WpfApp1\WpfApp1.Data\obj\Debug\net10.0\WpfApp1.Data.genruntimeconfig.cache
+C:\Development\WpfApp1\WpfApp1.Data\obj\Debug\net10.0\ref\WpfApp1.Data.dll
