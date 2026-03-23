@@ -1,4 +1,11 @@
+using WpfApp1.Data; // Import your new project's namespace
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// Register the DbContext from the .Data project
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // --- 1. Register Services ---
 builder.Services.AddEndpointsApiExplorer(); 

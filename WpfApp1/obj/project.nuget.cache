@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "8IfHXxw8LjU=",
+  "dgSpecHash": "y1vR/a514kU=",
   "success": true,
   "projectFilePath": "C:\\Development\\WpfApp1\\WpfApp1\\WpfApp1.csproj",
   "expectedPackageFiles": [
@@ -42,6 +42,7 @@
     "C:\\Users\\mxfoy\\.nuget\\packages\\system.diagnostics.diagnosticsource\\11.0.0-preview.2.26159.112\\system.diagnostics.diagnosticsource.11.0.0-preview.2.26159.112.nupkg.sha512",
     "C:\\Users\\mxfoy\\.nuget\\packages\\system.diagnostics.eventlog\\11.0.0-preview.2.26159.112\\system.diagnostics.eventlog.11.0.0-preview.2.26159.112.nupkg.sha512",
     "C:\\Users\\mxfoy\\.nuget\\packages\\system.io.pipelines\\11.0.0-preview.2.26159.112\\system.io.pipelines.11.0.0-preview.2.26159.112.nupkg.sha512",
+    "C:\\Users\\mxfoy\\.nuget\\packages\\system.memory\\4.6.3\\system.memory.4.6.3.nupkg.sha512",
     "C:\\Users\\mxfoy\\.nuget\\packages\\system.text.encodings.web\\11.0.0-preview.2.26159.112\\system.text.encodings.web.11.0.0-preview.2.26159.112.nupkg.sha512",
     "C:\\Users\\mxfoy\\.nuget\\packages\\system.text.json\\11.0.0-preview.2.26159.112\\system.text.json.11.0.0-preview.2.26159.112.nupkg.sha512"
   ],

@@ -9,7 +9,16 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.4"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.5">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
         <PackageReference Include="NSwag.AspNetCore" Version="14.6.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\WpfApp1.Data\WpfApp1.Data.csproj" />
+      <ProjectReference Include="..\WpfApp1.Services\WpfApp1.Services.csproj" />
     </ItemGroup>
 
 </Project>
