@@ -21,4 +21,8 @@
       <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
     </ItemGroup>
 
+    <Target Name="NSwag" BeforeTargets="PrepareForBuild" Condition="'$(Configuration)' == 'Debug'">
+        <Exec Command="$(NSwagExe_Net80) run api.nswag /variables:Configuration=$(Configuration)" />
+    </Target>
+
 </Project>

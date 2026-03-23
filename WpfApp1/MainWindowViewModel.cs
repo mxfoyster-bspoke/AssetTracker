@@ -4,14 +4,16 @@ namespace WpfApp1;
 
 public class MainWindowViewModel : ObservableObject
 {
-    private readonly IApiClient _apiClient;
-    
+    // private readonly IApiClient _apiClient;
+    private readonly ITestClient  _testClient;
+    //
     private string _itemName;
     private string _itemDescription;
-
-    public MainWindowViewModel(IApiClient apiClient)
+    //
+    public MainWindowViewModel(ITestClient testClient)
     {
-        _apiClient = apiClient;
+        _testClient = testClient;
+        
         LoadDataAsync();
     }
     
@@ -20,7 +22,7 @@ public class MainWindowViewModel : ObservableObject
         try
         {
             // 3. Call your "Test" or "Weather" endpoint
-            var result = await _apiClient.GetInventoryAsync(); 
+            var result = await _testClient.GetAsync(); 
             //ItemName = result;
         }
         catch (Exception ex)

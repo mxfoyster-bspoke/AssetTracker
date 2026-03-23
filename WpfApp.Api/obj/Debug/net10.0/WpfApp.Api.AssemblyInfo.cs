@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WpfApp.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+250ab9b086983a9fab45a384b3d3c969770ecf40")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0ee46daa9c319879d238a1366f336043a61f6efe")]
 [assembly: System.Reflection.AssemblyProductAttribute("WpfApp.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WpfApp.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

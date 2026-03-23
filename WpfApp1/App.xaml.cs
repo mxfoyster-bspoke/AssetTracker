@@ -1,12 +1,12 @@
 ﻿using System.Windows;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using System.Net.Http; // Added for HttpClient
+using System.Linq;     // Added for Filtering
+using System.Reflection; // Added for Scanning types
 
 namespace WpfApp1;
 
-/// <summary>
-/// Interaction logic for App.xaml
-/// </summary>
 public partial class App : Application
 {
     public static IHost? AppHost { get; private set; }
@@ -16,18 +16,42 @@ public partial class App : Application
         AppHost = Host.CreateDefaultBuilder()
             .ConfigureServices((hostContext, services) =>
             {
-                // 1. Register the Main Window
+                // 1. Register the UI
                 services.AddSingleton<MainWindow>();
-                
-                // Register the ViewModel <-- IS THIS LINE PRESENT?
                 services.AddTransient<MainWindowViewModel>();
 
-                // 2. Register the HttpClient and your Generated Client
-                // This handles connection pooling for you! 
-                services.AddHttpClient<IApiClient, ApiClient>(client =>
+                // 2. AUTOMATIC API CLIENT REGISTRATION
+                var apiBaseUrl = new Uri("http://localhost:5204");
+
+                // Look through your project for NSwag generated classes
+                var clientTypes = Assembly.GetExecutingAssembly()
+                    .GetTypes()
+                    .Where(t => t.IsClass && !t.IsAbstract && t.Name.EndsWith("Client"));
+                
+                services.AddHttpClient();
+
+                foreach (var implementationType in clientTypes)
                 {
-                    client.BaseAddress = new Uri("https://localhost:7001");
-                });
+                    // Find the interface (e.g., TestClient -> ITestClient)
+                    var interfaceType = implementationType.GetInterface($"I{implementationType.Name}");
+
+                    if (interfaceType != null)
+                    {
+                        // 1. Register the implementation (e.g., TestClient)
+                        services.AddTransient(implementationType, sp =>
+                        {
+                            var httpClientFactory = sp.GetRequiredService<IHttpClientFactory>();
+                            var httpClient = httpClientFactory.CreateClient();
+                            httpClient.BaseAddress = apiBaseUrl;
+
+                            // Create the client instance (e.g., new TestClient(httpClient))
+                            return ActivatorUtilities.CreateInstance(sp, implementationType, httpClient);
+                        });
+
+                        // 2. Map the interface to that implementation
+                        services.AddTransient(interfaceType, sp => sp.GetRequiredService(implementationType));
+                    }
+                }
             })
             .Build();
     }
@@ -35,11 +59,8 @@ public partial class App : Application
     protected override async void OnStartup(StartupEventArgs e)
     {
         await AppHost!.StartAsync();
-
-        // Start the MainWindow through DI
         var mainWindow = AppHost.Services.GetRequiredService<MainWindow>();
         mainWindow.Show();
-
         base.OnStartup(e);
     }
 
