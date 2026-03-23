@@ -13,12 +13,4 @@
     <SourceRoot Include="C:\Users\mxfoy\.nuget\packages\" />
     <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
   </ItemGroup>
-  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Import Project="$(NuGetPackageRoot)nswag.msbuild\14.6.3\buildTransitive\NSwag.MSBuild.props" Condition="Exists('$(NuGetPackageRoot)nswag.msbuild\14.6.3\buildTransitive\NSwag.MSBuild.props')" />
-  </ImportGroup>
-  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgNSwag_MSBuild Condition=" '$(PkgNSwag_MSBuild)' == '' ">C:\Users\mxfoy\.nuget\packages\nswag.msbuild\14.6.3</PkgNSwag_MSBuild>
-    <PkgMicrosoft_Xaml_Behaviors_Wpf Condition=" '$(PkgMicrosoft_Xaml_Behaviors_Wpf)' == '' ">C:\Users\mxfoy\.nuget\packages\microsoft.xaml.behaviors.wpf\1.1.135</PkgMicrosoft_Xaml_Behaviors_Wpf>
-    <PkgMahApps_Metro Condition=" '$(PkgMahApps_Metro)' == '' ">C:\Users\mxfoy\.nuget\packages\mahapps.metro\3.0.0-rc0529</PkgMahApps_Metro>
-  </PropertyGroup>
 </Project>
