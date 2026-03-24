@@ -39,7 +39,7 @@ namespace WpfApp1.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("TodoItems");
+                    b.ToTable("Assets");
                 });
 #pragma warning restore 612, 618
         }

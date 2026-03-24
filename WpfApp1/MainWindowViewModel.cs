@@ -22,7 +22,7 @@ public class MainWindowViewModel : ObservableObject
         try
         {
             // 3. Call your "Test" or "Weather" endpoint
-            var result = await _testClient.GetAsync(); 
+            var result = await _testClient.GetAllAssetsAsync(); 
             //ItemName = result;
         }
         catch (Exception ex)

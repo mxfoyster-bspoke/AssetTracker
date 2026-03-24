@@ -11,7 +11,8 @@
           "Microsoft.AspNetCore.OpenApi": "10.0.4",
           "Microsoft.EntityFrameworkCore.Design": "10.0.5",
           "NSwag.AspNetCore": "14.6.3",
-          "WpfApp1.Data": "1.0.0"
+          "WpfApp1.Data": "1.0.0",
+          "WpfApp1.Services": "1.0.0"
         },
         "runtime": {
           "WpfApp.Api.dll": {}
@@ -922,6 +923,17 @@
             "fileVersion": "1.0.0.0"
           }
         }
+      },
+      "WpfApp1.Services/1.0.0": {
+        "dependencies": {
+          "WpfApp1.Data": "1.0.0"
+        },
+        "runtime": {
+          "WpfApp1.Services.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
       }
     }
   },
@@ -1331,6 +1343,11 @@
       "hashPath": "yamldotnet.16.3.0.nupkg.sha512"
     },
     "WpfApp1.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "WpfApp1.Services/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
