@@ -1,5 +1,4 @@
 using System.Windows.Input;
-using ClassLibrary1.Common.DTOs;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
@@ -10,8 +9,7 @@ public class MainWindowViewModel : ObservableObject
     // private readonly IApiClient _apiClient;
     private readonly ITestClient  _testClient;
     //
-    private string _itemName;
-    private string _itemDescription;
+    private List<AssetViewModel> _items;
     //
     public MainWindowViewModel(ITestClient testClient)
     {
@@ -24,41 +22,36 @@ public class MainWindowViewModel : ObservableObject
     {
         try
         {
-            // 3. Call your "Test" or "Weather" endpoint
             var result = await _testClient.GetAllAssetsAsync(); 
-            //ItemName = result;
+            Items = result.Select(s=> new AssetViewModel()
+            {
+                ItemName = s.Name,
+                ItemDescription = s.Description
+            }).ToList();
         }
         catch (Exception ex)
         {
-            ItemName = "Error loading data";
+            //ItemName = "Error loading data";
         }
     }
+    
+    public ICommand AddAssetCommand => new RelayCommand(AddAsset);
 
-    public ICommand SaveDataAsyncCommand => new AsyncRelayCommand(SaveDataAsync);
-    private async Task SaveDataAsync()
+    private void AddAsset()
     {
-        var test = new AssetDto()
-        {
-            Name = "Test Name",
-            Description = "Test Description",
-        };
+        
+    }
 
-    await _testClient.AddAssetAsync(test);
-
-
+    public List<AssetViewModel> Items
+    {
+        get => _items;
+        set => SetProperty(ref _items, value);
     }
     
-
-
-    public string ItemName
+    public class AssetViewModel : ObservableObject
     {
-        get => _itemName;
-        set => SetProperty(ref _itemName, value);
-    }
-    
-    public string ItemDescription 
-    {
-        get => _itemDescription;    
-        set => SetProperty(ref _itemDescription, value);
+        public string ItemName { get; set; }
+        public string ItemDescription { get; set; } 
+        
     }
 }

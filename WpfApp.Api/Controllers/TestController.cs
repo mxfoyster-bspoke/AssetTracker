@@ -1,6 +1,5 @@
 using ClassLibrary1.Common.DTOs;
 using Microsoft.AspNetCore.Mvc;
-using WpfApp1.Data;
 using WpfApp1.Services;
 
 namespace WpfApp1.Controllers;
@@ -17,7 +16,7 @@ public class TestController : ControllerBase
     }
     
     [HttpGet]
-    public async Task<ActionResult<List<Asset>>> GetAllAssetsAsync()
+    public async Task<ActionResult<List<AssetDto>>> GetAllAssetsAsync()
     {
         var assets = await _assetService.GetAllAssetsAsync();
         return Ok(assets);

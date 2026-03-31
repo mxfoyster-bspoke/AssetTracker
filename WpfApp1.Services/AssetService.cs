@@ -14,10 +14,14 @@ public class AssetService
         _db = db;
     }
     
-    public async Task<List<Asset>> GetAllAssetsAsync()
+    public async Task<List<AssetDto>> GetAllAssetsAsync()
     {
-        // This hits the SQL database and returns everything in the Assets table
-        return await _db.Assets.ToListAsync();
+        return await _db.Assets.Select(s=> new AssetDto()
+        {
+            Id = s.Id,
+            Name = s.Name,
+            Description = s.Description,
+        }).ToListAsync();
     }
 
 
