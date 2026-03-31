@@ -38,12 +38,13 @@ public class MainWindowViewModel : ObservableObject
         }
     }
     
-    public ICommand AddAssetCommand => new RelayCommand(AddAsset);
+    public ICommand AddAssetCommand => new AsyncRelayCommand(AddAsset);
 
-    private void AddAsset()
+    private async Task AddAsset()
     {
         var vm = new AddAssetViewModel(_testClient);
         _dialogService.ShowDialog(vm);
+        await LoadDataAsync();
     }
 
     public List<AssetViewModel> Items

@@ -1,6 +1,5 @@
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
-using MahApps.Metro.Actions;
 
 namespace WpfApp1.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -31,7 +30,6 @@ public class AddAssetViewModel : ObservableObject
             };
 
             await _testClient.AddAssetAsync(test);
-        
             CloseAction?.Invoke();
         }
         catch (Exception e)
