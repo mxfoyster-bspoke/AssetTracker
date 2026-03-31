@@ -1,6 +1,7 @@
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using WpfApp1.Views;
 
 namespace WpfApp1;
 
@@ -8,13 +9,15 @@ public class MainWindowViewModel : ObservableObject
 {
     // private readonly IApiClient _apiClient;
     private readonly ITestClient  _testClient;
+    private readonly IDialogService _dialogService;
     //
     private List<AssetViewModel> _items;
     //
-    public MainWindowViewModel(ITestClient testClient)
+    public MainWindowViewModel(ITestClient testClient, IDialogService dialogService)
     {
         _testClient = testClient;
-        
+        _dialogService = dialogService;
+
         LoadDataAsync();
     }
     
@@ -39,7 +42,8 @@ public class MainWindowViewModel : ObservableObject
 
     private void AddAsset()
     {
-        
+        var vm = new AddAssetViewModel(_testClient);
+        _dialogService.ShowDialog(vm);
     }
 
     public List<AssetViewModel> Items

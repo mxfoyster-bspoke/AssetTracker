@@ -2,8 +2,8 @@
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using System.Net.Http; // Added for HttpClient
-using System.Linq;     // Added for Filtering
-using System.Reflection; // Added for Scanning types
+using System.Reflection;
+using WpfApp1.Views; // Added for Scanning types
 
 namespace WpfApp1;
 
@@ -19,6 +19,9 @@ public partial class App : Application
                 // 1. Register the UI
                 services.AddSingleton<MainWindow>();
                 services.AddTransient<MainWindowViewModel>();
+                
+                services.AddSingleton<IDialogService, DialogService>();
+                services.AddTransient<AddAssetViewModel>();
 
                 // 2. AUTOMATIC API CLIENT REGISTRATION
                 var apiBaseUrl = new Uri("http://localhost:5204");

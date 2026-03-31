@@ -1,7 +1,11 @@
 ﻿<Application x:Class="WpfApp1.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:WpfApp1">
+             xmlns:local="clr-namespace:WpfApp1"
+             xmlns:views="clr-namespace:WpfApp1.Views">
     <Application.Resources>
+        <DataTemplate DataType="{x:Type views:AddAssetViewModel}">
+            <views:AddAsset />
+        </DataTemplate>
     </Application.Resources>
 </Application>

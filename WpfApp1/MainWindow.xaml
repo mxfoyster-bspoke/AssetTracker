@@ -12,7 +12,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Button Grid.Row="0" Content="ADD" />    
+        <Button Grid.Row="0" Content="ADD" Command="{Binding AddAssetCommand}" />    
         <DataGrid Grid.Row="1" ItemsSource="{Binding Items}"/>
         
     </Grid>

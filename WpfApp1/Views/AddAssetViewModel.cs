@@ -1,3 +1,6 @@
+using System.Windows.Input;
+using CommunityToolkit.Mvvm.Input;
+
 namespace WpfApp1.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 
@@ -12,6 +15,8 @@ public class AddAssetViewModel : ObservableObject
     {
         _testClient = testClient;
     }
+    
+    public ICommand SaveDataCommand => new AsyncRelayCommand(SaveDataAsync);
     
     private async Task SaveDataAsync()
     {

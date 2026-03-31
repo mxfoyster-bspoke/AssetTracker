@@ -24,7 +24,7 @@
             <TextBox Grid.Row="1" Grid.Column="1" AcceptsReturn="True" TextWrapping="Wrap"
                      Height="200" ScrollViewer.VerticalScrollBarVisibility="Auto"  HorizontalAlignment="Stretch" 
                      VerticalAlignment="Top" Margin="5" Text="{Binding ItemDescription}"/>
-            <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Command="{Binding SaveDataAsyncCommand}">SAVE</Button>
+            <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Command="{Binding SaveDataCommand}">SAVE</Button>
         </Grid>
     </Grid>
 </UserControl>

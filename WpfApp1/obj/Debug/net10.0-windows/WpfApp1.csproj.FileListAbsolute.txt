@@ -67,3 +67,5 @@ C:\Development\WpfApp1\WpfApp1\bin\Debug\net10.0-windows\ClassLibrary1.Common.dl
 C:\Development\WpfApp1\WpfApp1\bin\Debug\net10.0-windows\ClassLibrary1.Common.pdb
 C:\Development\WpfApp1\WpfApp1\obj\Debug\net10.0-windows\Views\AddAsset.g.cs
 C:\Development\WpfApp1\WpfApp1\obj\Debug\net10.0-windows\Views\AddAsset.baml
+C:\Development\WpfApp1\WpfApp1\obj\Debug\net10.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Development\WpfApp1\WpfApp1\obj\Debug\net10.0-windows\App.baml
