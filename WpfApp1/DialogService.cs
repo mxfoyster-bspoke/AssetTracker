@@ -1,4 +1,5 @@
 using System.Windows;
+using WpfApp1.Views;
 
 namespace WpfApp1;
 
@@ -20,6 +21,10 @@ public class DialogService : IDialogService
             WindowStartupLocation = WindowStartupLocation.CenterScreen
         };
 
+        if (viewModel is AddAssetViewModel vm)
+        {
+            vm.CloseAction = () => view.Close();
+        }
         view.ShowDialog();
     }
 }

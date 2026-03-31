@@ -1,5 +1,6 @@
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
+using MahApps.Metro.Actions;
 
 namespace WpfApp1.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -16,18 +17,29 @@ public class AddAssetViewModel : ObservableObject
         _testClient = testClient;
     }
     
+    public Action? CloseAction { get; set; }
     public ICommand SaveDataCommand => new AsyncRelayCommand(SaveDataAsync);
     
     private async Task SaveDataAsync()
     {
-        var test = new AssetDto()
+        try
         {
-            Name = ItemName,
-            Description = ItemDescription,
-        };
+            var test = new AssetDto()
+            {
+                Name = ItemName,
+                Description = ItemDescription,
+            };
 
-        await _testClient.AddAssetAsync(test);
-
+            await _testClient.AddAssetAsync(test);
+        
+            CloseAction?.Invoke();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+      
 
     }
     
