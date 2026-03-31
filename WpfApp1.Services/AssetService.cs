@@ -1,4 +1,5 @@
-﻿using WpfApp1.Data;
+﻿using ClassLibrary1.Common.DTOs;
+using WpfApp1.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace WpfApp1.Services;
@@ -17,5 +18,18 @@ public class AssetService
     {
         // This hits the SQL database and returns everything in the Assets table
         return await _db.Assets.ToListAsync();
+    }
+
+
+    public async Task AddAsset(AssetDto assetDto)
+    {
+        var asset = new Asset()
+        {
+            Name = assetDto.Name,
+            Description = assetDto.Description,
+        };
+        await _db.Assets.AddAsync(asset);
+        await _db.SaveChangesAsync();
+            
     }
 }

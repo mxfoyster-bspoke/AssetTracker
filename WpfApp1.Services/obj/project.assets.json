@@ -683,6 +683,16 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
+      "ClassLibrary1.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/ClassLibrary1.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ClassLibrary1.Common.dll": {}
+        }
+      },
       "WpfApp1.Data/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
@@ -1680,6 +1690,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "ClassLibrary1.Common/1.0.0": {
+      "type": "project",
+      "path": "../ClassLibrary1.Common/ClassLibrary1.Common.csproj",
+      "msbuildProject": "../ClassLibrary1.Common/ClassLibrary1.Common.csproj"
+    },
     "WpfApp1.Data/1.0.0": {
       "type": "project",
       "path": "../WpfApp1.Data/WpfApp1.Data.csproj",
@@ -1688,6 +1703,7 @@
   },
   "projectFileDependencyGroups": {
     "net10.0": [
+      "ClassLibrary1.Common >= 1.0.0",
       "WpfApp1.Data >= 1.0.0"
     ]
   },
@@ -1724,6 +1740,9 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
+            "C:\\Development\\WpfApp1\\ClassLibrary1.Common\\ClassLibrary1.Common.csproj": {
+              "projectPath": "C:\\Development\\WpfApp1\\ClassLibrary1.Common\\ClassLibrary1.Common.csproj"
+            },
             "C:\\Development\\WpfApp1\\WpfApp1.Data\\WpfApp1.Data.csproj": {
               "projectPath": "C:\\Development\\WpfApp1\\WpfApp1.Data\\WpfApp1.Data.csproj"
             }

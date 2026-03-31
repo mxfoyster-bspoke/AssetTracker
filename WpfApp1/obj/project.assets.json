@@ -818,6 +818,16 @@
         "build": {
           "buildTransitive/net10.0/System.Text.Json.targets": {}
         }
+      },
+      "ClassLibrary1.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/ClassLibrary1.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ClassLibrary1.Common.dll": {}
+        }
       }
     }
   },
@@ -2444,10 +2454,16 @@
         "system.text.json.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "ClassLibrary1.Common/1.0.0": {
+      "type": "project",
+      "path": "../ClassLibrary1.Common/ClassLibrary1.Common.csproj",
+      "msbuildProject": "../ClassLibrary1.Common/ClassLibrary1.Common.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net10.0-windows7.0": [
+      "ClassLibrary1.Common >= 1.0.0",
       "CommunityToolkit.Mvvm >= 8.4.1",
       "MahApps.Metro >= 3.0.0-rc0529",
       "Microsoft.Extensions.Hosting >= 11.0.0-preview.2.26159.112",
@@ -2489,7 +2505,11 @@
       "frameworks": {
         "net10.0-windows7.0": {
           "targetAlias": "net10.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Development\\WpfApp1\\ClassLibrary1.Common\\ClassLibrary1.Common.csproj": {
+              "projectPath": "C:\\Development\\WpfApp1\\ClassLibrary1.Common\\ClassLibrary1.Common.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v10.0": {
       "WpfApp1/1.0.0": {
         "dependencies": {
+          "ClassLibrary1.Common": "1.0.0",
           "CommunityToolkit.Mvvm": "8.4.1",
           "MahApps.Metro": "3.0.0-rc0529",
           "Microsoft.Extensions.Hosting": "11.0.0-preview.2.26159.112",
@@ -516,6 +517,14 @@
             "fileVersion": "11.0.26.16012"
           }
         }
+      },
+      "ClassLibrary1.Common/1.0.0": {
+        "runtime": {
+          "ClassLibrary1.Common.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
       }
     }
   },
@@ -790,6 +799,11 @@
       "sha512": "sha512-3pAlK9rxbovbkYzGDcmlcajVj+JtJ8aegjligipaXhfv2EdOND4VX5dYP3yF7FUHkSBlpgESD/wqUQAc+yjKdQ==",
       "path": "system.text.json/11.0.0-preview.2.26159.112",
       "hashPath": "system.text.json.11.0.0-preview.2.26159.112.nupkg.sha512"
+    },
+    "ClassLibrary1.Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

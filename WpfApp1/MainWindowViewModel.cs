@@ -1,4 +1,7 @@
+using System.Windows.Input;
+using ClassLibrary1.Common.DTOs;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
 namespace WpfApp1;
 
@@ -30,6 +33,21 @@ public class MainWindowViewModel : ObservableObject
             ItemName = "Error loading data";
         }
     }
+
+    public ICommand SaveDataAsyncCommand => new AsyncRelayCommand(SaveDataAsync);
+    private async Task SaveDataAsync()
+    {
+        var test = new AssetDto()
+        {
+            Name = "Test Name",
+            Description = "Test Description",
+        };
+
+    await _testClient.AddAssetAsync(test);
+
+
+    }
+    
 
 
     public string ItemName

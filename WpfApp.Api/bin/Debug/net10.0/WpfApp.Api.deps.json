@@ -913,6 +913,14 @@
           }
         }
       },
+      "ClassLibrary1.Common/1.0.0": {
+        "runtime": {
+          "ClassLibrary1.Common.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "WpfApp1.Data/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.SqlServer": "10.0.5"
@@ -926,6 +934,7 @@
       },
       "WpfApp1.Services/1.0.0": {
         "dependencies": {
+          "ClassLibrary1.Common": "1.0.0",
           "WpfApp1.Data": "1.0.0"
         },
         "runtime": {
@@ -1341,6 +1350,11 @@
       "sha512": "sha512-SgMOdxbz8X65z8hraIs6hOEdnkH6hESTAIUa7viEngHOYaH+6q5XJmwr1+yb9vJpNQ19hCQY69xbFsLtXpobQA==",
       "path": "yamldotnet/16.3.0",
       "hashPath": "yamldotnet.16.3.0.nupkg.sha512"
+    },
+    "ClassLibrary1.Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "WpfApp1.Data/1.0.0": {
       "type": "project",

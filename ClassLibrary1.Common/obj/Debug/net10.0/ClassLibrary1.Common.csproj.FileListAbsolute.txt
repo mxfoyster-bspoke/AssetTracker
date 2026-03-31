@@ -1,0 +1,12 @@
+C:\Development\WpfApp1\ClassLibrary1.Common\bin\Debug\net10.0\ClassLibrary1.Common.deps.json
+C:\Development\WpfApp1\ClassLibrary1.Common\bin\Debug\net10.0\ClassLibrary1.Common.dll
+C:\Development\WpfApp1\ClassLibrary1.Common\bin\Debug\net10.0\ClassLibrary1.Common.pdb
+C:\Development\WpfApp1\ClassLibrary1.Common\obj\Debug\net10.0\ClassLibrary1.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Development\WpfApp1\ClassLibrary1.Common\obj\Debug\net10.0\ClassLibrary1.Common.AssemblyInfoInputs.cache
+C:\Development\WpfApp1\ClassLibrary1.Common\obj\Debug\net10.0\ClassLibrary1.Common.AssemblyInfo.cs
+C:\Development\WpfApp1\ClassLibrary1.Common\obj\Debug\net10.0\ClassLibrary1.Common.csproj.CoreCompileInputs.cache
+C:\Development\WpfApp1\ClassLibrary1.Common\obj\Debug\net10.0\ClassLibrary1.Common.sourcelink.json
+C:\Development\WpfApp1\ClassLibrary1.Common\obj\Debug\net10.0\ClassLibrary1.Common.dll
+C:\Development\WpfApp1\ClassLibrary1.Common\obj\Debug\net10.0\refint\ClassLibrary1.Common.dll
+C:\Development\WpfApp1\ClassLibrary1.Common\obj\Debug\net10.0\ClassLibrary1.Common.pdb
+C:\Development\WpfApp1\ClassLibrary1.Common\obj\Debug\net10.0\ref\ClassLibrary1.Common.dll

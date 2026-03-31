@@ -1,3 +1,4 @@
+using ClassLibrary1.Common.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using WpfApp1.Data;
 using WpfApp1.Services;
@@ -20,5 +21,12 @@ public class TestController : ControllerBase
     {
         var assets = await _assetService.GetAllAssetsAsync();
         return Ok(assets);
+    }
+
+
+    [HttpPost]
+    public async Task AddAsset(AssetDto assetDto)
+    {
+        await _assetService.AddAsset(assetDto);
     }
 }
