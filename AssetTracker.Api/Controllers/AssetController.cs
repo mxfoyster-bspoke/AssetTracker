@@ -1,16 +1,16 @@
+using AssetTracker.Common.DTOs;
 using AssetTracker.Services;
-using ClassLibrary1.Common.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AssetTracker.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class TestController : ControllerBase
+public class AssetController : ControllerBase
 {
     private readonly AssetService _assetService;
 
-    public TestController(AssetService assetService)
+    public AssetController(AssetService assetService)
     {
         _assetService = assetService;
     }
@@ -21,11 +21,16 @@ public class TestController : ControllerBase
         var assets = await _assetService.GetAllAssetsAsync();
         return Ok(assets);
     }
-
-
-    [HttpPost]
+    
+    [HttpPost("add")] 
     public async Task AddAsset(AssetDto assetDto)
     {
         await _assetService.AddAsset(assetDto);
+    }
+    
+    [HttpPost("delete/{idToDelete}")]
+    public async Task DeleteAsset(int idToDelete)
+    {
+        await _assetService.DeleteAsset(idToDelete);
     }
 }

@@ -9,11 +9,32 @@
         d:DataContext="{d:DesignInstance Type=local:MainWindowViewModel}">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
-            <RowDefinition />
         </Grid.RowDefinitions>
-        <Button Grid.Row="0" Content="ADD" Command="{Binding AddAssetCommand}" />    
-        <DataGrid Grid.Row="1" ItemsSource="{Binding Items}"/>
-        
+       
+        <DataGrid Grid.Row="0" ItemsSource="{Binding Items}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Item Name" Binding="{Binding ItemName}"/>
+                <DataGridTextColumn Header="Item Description" Binding="{Binding ItemDescription}" Width="*" />
+                <DataGridTextColumn Header="Date Added"
+                                    Binding="{Binding DateAdded, StringFormat=\{0:dd/MM/yyyy\}}" />
+                <DataGridTemplateColumn>
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <Button Content="Delete" 
+                                Command="{Binding DataContext.DeleteAssetCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" 
+                                CommandParameter="{Binding FallbackValue={x:Null}}"
+                                Background="Red" 
+                                BorderBrush="Red" 
+                                Foreground = "White"/>
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Grid.Row="1" Content="ADD" Command="{Binding AddAssetCommand}" />    
+
     </Grid>
 </Window>

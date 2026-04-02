@@ -2,20 +2,21 @@ using System.Windows.Input;
 using AssetTracker.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using WpfApp1;
 
 namespace AssetTracker;
 
 public class MainWindowViewModel : ObservableObject
 {
     // private readonly IApiClient _apiClient;
-    private readonly ITestClient  _testClient;
+    private readonly IAssetClient  _assetClient;
     private readonly IDialogService _dialogService;
     //
     private List<AssetViewModel> _items;
     //
-    public MainWindowViewModel(ITestClient testClient, IDialogService dialogService)
+    public MainWindowViewModel(IAssetClient assetClient, IDialogService dialogService)
     {
-        _testClient = testClient;
+        _assetClient = assetClient;
         _dialogService = dialogService;
 
         LoadDataAsync();
@@ -25,11 +26,13 @@ public class MainWindowViewModel : ObservableObject
     {
         try
         {
-            var result = await _testClient.GetAllAssetsAsync(); 
+            var result = await _assetClient.GetAllAssetsAsync(); 
             Items = result.Select(s=> new AssetViewModel()
             {
+                Id = s.Id.Value,
                 ItemName = s.Name,
-                ItemDescription = s.Description
+                ItemDescription = s.Description,
+                DateAdded = s.DateAdded.Value
             }).ToList();
         }
         catch (Exception ex)
@@ -42,8 +45,30 @@ public class MainWindowViewModel : ObservableObject
 
     private async Task AddAsset()
     {
-        var vm = new AddAssetViewModel(_testClient);
+        var vm = new AddAssetViewModel(_assetClient);
         _dialogService.ShowDialog(vm);
+        await LoadDataAsync();
+    }
+
+    public ICommand DeleteAssetCommand => new AsyncRelayCommand<object?>(DeleteAsset);
+
+    private async Task DeleteAsset(object? parameter)
+    {
+        var asset = parameter as AssetViewModel;
+        
+        if (asset == null) 
+            return;
+
+        try 
+        {
+            await _assetClient.DeleteAssetAsync(asset.Id);
+            
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine($"Delete failed: {ex.Message}");
+        }
+        
         await LoadDataAsync();
     }
 
@@ -55,8 +80,10 @@ public class MainWindowViewModel : ObservableObject
     
     public class AssetViewModel : ObservableObject
     {
+        public int Id  { get; set; }
         public string ItemName { get; set; }
-        public string ItemDescription { get; set; } 
+        public string ItemDescription { get; set; }
+        public DateTime DateAdded { get; set; }
         
     }
 }

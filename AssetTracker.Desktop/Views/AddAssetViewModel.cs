@@ -1,5 +1,6 @@
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
+using WpfApp1;
 
 namespace AssetTracker.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -7,13 +8,13 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 public class AddAssetViewModel : ObservableObject
 {
-    private readonly ITestClient  _testClient;
+    private readonly IAssetClient  _assetClient;
     private string _itemName;
     private string _itemDescription;
 
-    public AddAssetViewModel(ITestClient testClient)
+    public AddAssetViewModel(IAssetClient assetClient)
     {
-        _testClient = testClient;
+        _assetClient = assetClient;
     }
     
     public Action? CloseAction { get; set; }
@@ -29,7 +30,7 @@ public class AddAssetViewModel : ObservableObject
                 Description = ItemDescription,
             };
 
-            await _testClient.AddAssetAsync(test);
+            await _assetClient.AddAssetAsync(test);
             CloseAction?.Invoke();
         }
         catch (Exception e)
