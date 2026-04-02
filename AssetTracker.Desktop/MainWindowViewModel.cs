@@ -1,4 +1,5 @@
 using System.Windows.Input;
+using AssetTracker.Dialogs;
 using AssetTracker.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -61,6 +62,9 @@ public class MainWindowViewModel : ObservableObject
 
         try 
         {
+            var vm = new ConfirmationDialogViewModel("Are you sure you want to delete this asset?");
+            _dialogService.ShowDialog(vm);
+            
             await _assetClient.DeleteAssetAsync(asset.Id);
             
         }
