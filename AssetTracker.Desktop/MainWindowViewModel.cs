@@ -63,9 +63,13 @@ public class MainWindowViewModel : ObservableObject
         try 
         {
             var vm = new ConfirmationDialogViewModel("Are you sure you want to delete this asset?");
-            _dialogService.ShowDialog(vm);
+            var abort = _dialogService.ShowConfirmationDialog(vm);
+
+            if (!abort)
+            {
+                await _assetClient.DeleteAssetAsync(asset.Id);
+            }
             
-            await _assetClient.DeleteAssetAsync(asset.Id);
             
         }
         catch (Exception ex)
