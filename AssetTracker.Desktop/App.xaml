@@ -2,10 +2,17 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:AssetTracker"
-             xmlns:views="clr-namespace:AssetTracker.Views">
+             xmlns:views="clr-namespace:AssetTracker.Views"
+             xmlns:dialogs="clr-namespace:AssetTracker.Dialogs">
     <Application.Resources>
         <DataTemplate DataType="{x:Type views:AddAssetViewModel}">
             <views:AddAsset />
+        </DataTemplate>
+        
+        <DataTemplate DataType="{x:Type dialogs:ConfirmationDialogViewModel}">
+            <dialogs:ConfirmationDialog />
+            
+            
         </DataTemplate>
     </Application.Resources>
 </Application>

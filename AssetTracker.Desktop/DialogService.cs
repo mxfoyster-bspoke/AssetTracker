@@ -1,4 +1,5 @@
 using System.Windows;
+using AssetTracker.Dialogs;
 using AssetTracker.Views;
 
 namespace AssetTracker;
@@ -6,6 +7,7 @@ namespace AssetTracker;
 public interface IDialogService
 {
     void ShowDialog<TViewModel>(TViewModel viewModel) where TViewModel : class;
+    bool ShowConfirmationDialog<TViewModel>(TViewModel viewModel) where TViewModel : class;
 }
 
 public class DialogService : IDialogService
@@ -25,6 +27,27 @@ public class DialogService : IDialogService
         {
             vm.CloseAction = () => view.Close();
         }
+
         view.ShowDialog();
+    }
+
+    public bool ShowConfirmationDialog<TViewModel>(TViewModel viewModel) where TViewModel : class
+    {
+        var abort = true;
+
+        var view = new Window
+        {
+            Content = viewModel,
+            SizeToContent = SizeToContent.WidthAndHeight,
+            WindowStartupLocation = WindowStartupLocation.CenterScreen
+        };
+
+        if (viewModel is ConfirmationDialogViewModel cvm)
+        {
+            cvm.CloseAction = () => view.Close();
+            view.ShowDialog();
+            return cvm.Abort;
+        }
+        return true; // Abort if we get here because vm is unknown
     }
 }

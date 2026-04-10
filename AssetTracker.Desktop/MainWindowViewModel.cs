@@ -1,4 +1,5 @@
 using System.Windows.Input;
+using AssetTracker.Dialogs;
 using AssetTracker.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -8,12 +9,12 @@ namespace AssetTracker;
 
 public class MainWindowViewModel : ObservableObject
 {
-    // private readonly IApiClient _apiClient;
+   
     private readonly IAssetClient  _assetClient;
     private readonly IDialogService _dialogService;
-    //
+ 
     private List<AssetViewModel> _items;
-    //
+ 
     public MainWindowViewModel(IAssetClient assetClient, IDialogService dialogService)
     {
         _assetClient = assetClient;
@@ -61,7 +62,14 @@ public class MainWindowViewModel : ObservableObject
 
         try 
         {
-            await _assetClient.DeleteAssetAsync(asset.Id);
+            var vm = new ConfirmationDialogViewModel("Are you sure you want to delete this asset?");
+            var abort = _dialogService.ShowConfirmationDialog(vm);
+
+            if (!abort)
+            {
+                await _assetClient.DeleteAssetAsync(asset.Id);
+            }
+            
             
         }
         catch (Exception ex)
