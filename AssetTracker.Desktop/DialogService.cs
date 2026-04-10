@@ -29,26 +29,25 @@ public class DialogService : IDialogService
         }
 
         view.ShowDialog();
-
     }
-    
+
     public bool ShowConfirmationDialog<TViewModel>(TViewModel viewModel) where TViewModel : class
     {
         var abort = true;
-        
+
         var view = new Window
         {
             Content = viewModel,
             SizeToContent = SizeToContent.WidthAndHeight,
             WindowStartupLocation = WindowStartupLocation.CenterScreen
         };
-        
+
         if (viewModel is ConfirmationDialogViewModel cvm)
         {
             cvm.CloseAction = () => view.Close();
-            abort = cvm.Abort;
+            view.ShowDialog();
+            return cvm.Abort;
         }
-        view.ShowDialog();
         return abort;
     }
 }

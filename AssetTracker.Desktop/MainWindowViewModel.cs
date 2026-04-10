@@ -9,12 +9,12 @@ namespace AssetTracker;
 
 public class MainWindowViewModel : ObservableObject
 {
-    // private readonly IApiClient _apiClient;
+   
     private readonly IAssetClient  _assetClient;
     private readonly IDialogService _dialogService;
-    //
+ 
     private List<AssetViewModel> _items;
-    //
+ 
     public MainWindowViewModel(IAssetClient assetClient, IDialogService dialogService)
     {
         _assetClient = assetClient;

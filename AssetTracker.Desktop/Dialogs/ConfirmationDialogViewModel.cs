@@ -20,6 +20,15 @@ public class ConfirmationDialogViewModel: ObservableObject
     private void ActionAbort()
     {
         Abort = true;
+        CloseAction?.Invoke();
+    }
+    
+    public ICommand DeleteCommand => new RelayCommand(ActionDelete);
+
+    private void ActionDelete()
+    {
+        Abort = false;
+        CloseAction?.Invoke();
     }
     
     
