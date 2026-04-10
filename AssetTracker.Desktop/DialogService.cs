@@ -48,6 +48,6 @@ public class DialogService : IDialogService
             view.ShowDialog();
             return cvm.Abort;
         }
-        return abort;
+        return true; // Abort if we get here because vm is unknown
     }
 }
